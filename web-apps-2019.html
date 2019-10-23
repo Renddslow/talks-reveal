@@ -1,0 +1,376 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Web Apps</h1>
+					<p><small>How they work and what you need to be worried about</small></p>
+					<aside class="notes">
+						<p>The web has changed a lot.</p>
+						<p>Forums and eCommerce, now sprawling universe:</p>
+						<ul>
+							<li>Social media</li>
+							<li>Games</li>
+							<li>Tax Software</li>
+							<li>Live video chat</li>
+							<li>VR</li>
+						</ul>
+						<blockquote>
+							Why are things so complex? Why can't we go back to our Ask Jeeves and Yahoo News?
+						</blockquote>
+						<p>To answer that:</p>
+						<ol>
+							<li>History of Web Apps</li>
+							<li>Web Apps Today</li>
+							<li>What that means for you A2W</li>
+						</ol>
+					</aside>
+				</section>
+				<section>
+					<section
+							data-background-image="https://media3.giphy.com/media/bBUQPfg7l5kAM/giphy.gif?cid=790b76112c80c361a149e66efc5d306fd0d2ce66d16a9475&rid=giphy.gif"
+							data-background-size="800px"
+					>
+						<h2>Let's Go Back in Time</h2>
+					</section>
+					<section>
+						<h2>Good Ole Days</h2>
+						<img class="fragment fade-up" src="https://upload.wikimedia.org/wikipedia/commons/7/76/WorldWideWeb_FSF_GNU.png" />
+						<aside class="notes">
+							Let's go back to the good ole days. Well... maybe not that far back.
+						</aside>
+					</section>
+					<section>
+						<img src="https://i.imgur.com/RP23879.png" />
+						<aside class="notes">
+							That's about right.
+							<p>Side note. I discovered last night while trying to find this screenshot that Google will literally change to look like this if you Google, "Google in 1998" 🤯</p>
+							<p>
+								In those days, web sites were individual files hosted on server that could respond to HTTP requests. It made these requests one at a time. So once the client or browser had received the HTML file for the page, it might have to make a return trip to the server to get a stylesheet for the page.
+							</p>
+						</aside>
+					</section>
+					<section>
+						<img src="https://media.giphy.com/media/VOMvlxVHR7CF2/200.gif" />
+						<aside class="notes">
+							If you were really fancy, you'd include JavaScript. Mostly for pointless things like visitor counts and annoying pop ups.
+						</aside>
+					</section>
+					<section>
+						<p>All of this content had to be downloaded in order before the browser could render <em>any</em> of your page.</p>
+						<aside class="notes">
+							<p>All of this content had to be downloaded in order before the browser could render any of your content.</p>
+							<p>So let's walk through what a typical page load would look like for Pinterest in 1999.</p>
+						</aside>
+					</section>
+					<section data-background-color="#fff">
+						<h2>Pinterest.com in 1999</h2>
+						<ul>
+							<li class="fragment fade-up">Browser: "Hey server!"</li>
+							<li class="fragment fade-up">Server: "Hi."</li>
+							<li class="fragment fade-up">Browser: "I see you're awake."</li>
+							<li class="fragment fade-up">Browser: "I'd like <code>index.html</code>, please."</li>
+							<li class="fragment fade-up">Server: ...</li>
+							<li class="fragment fade-up">Server: ...</li>
+							<li class="fragment fade-up">Server: "Found it, here you go!"</li>
+							<li class="fragment fade-up">Browser: "Oh boy! Thanks!"</li>
+						</ul>
+						<aside class="notes">
+							<p>Now once its had the conversation and gotten index.html, it's going to scan through that to see if there's some JavaScript files or Stylesheets. Then one by one its going to have the exact same conversation above until it has everything and can render the page. Now once it has all of those, it will render the page and start having the exact same conversation again for every image on the page. And if you've ever used Pinterest, that's a lot of images.</p>
+						</aside>
+					</section>
+					<section>
+						<img src="https://cdn.tutsplus.com/active/uploads/legacy/articles/017_flashStory/img/splash-flash3.png" />
+						<aside class="notes">
+							Midway through the 90's and into the early 00's Flash web sites and games became the new hotness.
+						</aside>
+					</section>
+					<section>
+						<img src="https://i.imgur.com/cwPppyB.jpg" />
+						<aside class="notes">
+							I mean, look at this cutting edge 3D rendering. You couldn't do this without Flash.
+						</aside>
+					</section>
+					<section>
+						<img src="https://i.ytimg.com/vi/gx2HuXlcpbQ/maxresdefault.jpg" />
+						<aside class="notes">
+							YouTube was launched by former PayPal engineers using the power of Flash to play compressed videos. Suddenly your pages could be incredibly interactive.
+						</aside>
+					</section>
+					<section>
+						<p>Flash sites disadvantaged users by requiring additional software running on their machines and disadvantaged assistive technology users.</p>
+						<aside class="notes">
+							But it came at a cost. Your users had to have the right version of Flash installed on their local machines. It also made it difficult for folks with disabilities using assistive technology to interact with the pages as everything was under the Flash hood. By 2007, Flash was the dominate force in web applications.
+						</aside>
+					</section>
+					<section>
+						But in 2007, everything changed...
+					</section>
+					<section></section>
+					<section>
+						<h2>Apple Released the iPhone</h2>
+						<img src="https://i.ytimg.com/vi/x7qPAY9JqE4/maxresdefault.jpg" />
+						<aside class="notes">
+							But everything changed in 2007 with the release of the iPhone and the App Store. Apple made a conscious decision to not support the Flash player on their hardware, meaning that a major portion of the web wasn't accesible from the iPhone.
+						</aside>
+					</section>
+					<section data-transition="none">
+						<ul>
+							<li class="fragment fade-up">Asynchronous</li>
+							<li class="fragment fade-up">JavaScript</li>
+							<li class="fragment fade-up">And</li>
+							<li class="fragment fade-up">XML</li>
+						</ul>
+						<aside class="notes">
+							Now just two years prior 2005, Google started utilzing a technology bundled in most browsers since 98 to make calls to their server without having to reload the page. This pattern and associated technologies became known as Asynchronous Javascript and XML.
+						</aside>
+					</section>
+					<section data-transition="none">
+						<h2>AJAX</h2>
+						<aside class="notes">
+							<p>All of a sudden, you didn't necessarily need to reload your page to get updates from the server.</p>
+							<p>This led to a rise in applications that co-opted the power of a growing number of server-side frameworks like Ruby on Rails, Django, or ASP.NET which would supply the initial data and templating to a page, and then with the power of AJAX, we could check for updates, and update CRUD forms without a reload.</p>
+						</aside>
+					</section>
+					<section>
+						<p>HTML5 gave the browser more power, reducing the need for the server to generate markup.</p>
+						<aside class="notes">
+							With the rollout of HTML5 between 2011 and 2014 the need for server-side templating started to evaporate. The browser suddenly had power to maintain its own navigation state without reaching out to a server. In fact, the client could be completely decoupled from a server and still have the same, or better, experience.
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Web Apps Today</h2>
+					</section>
+					<section>
+						This increasingly common form of web applications is called a Single Page App.
+						<aside class="notes">
+							Before we dig into some of the technical features of single page apps, I want to talk about what value SPA's provide to their users.
+						</aside>
+					</section>
+					<section>
+						<h2>What the user gets</h2>
+						<ul>
+							<li class="fragment fade-up">Single page</li>
+							<li class="fragment fade-up">Browser-side caching</li>
+							<li class="fragment fade-up">Faster navigation between screens</li>
+							<li class="fragment fade-up">Perceived performance increase during loading states</li>
+						</ul>
+					</section>
+					<section>
+						<h2>What the developer gets</h2>
+						<blockquote class="fragment fade-up">The key to all of this is JavaScript</blockquote>
+						<p class="fragment fade-up">HTML5 gives us better interaction with the DOM</p>
+						<aside class="notes">
+							<p>Massive improvements over the past 20 years both to the language itself and the wider JavaScript ecosystem mean we get to do really cool stuff right in the browser all natively. Things like data-visualization, 3D-rendering, video games, and live video chat.</p>
+							<p>With the rollout of HTML5 we also gained much better access to the browser's way of understanding and modifying the HTML documents called the DOM.</p>
+						</aside>
+					</section>
+					<section>
+						<h2>What the developer gets</h2>
+						<ul>
+							<li class="fragment fade-up">History</li>
+							<li class="fragment fade-up">Browser Storage</li>
+							<li class="fragment fade-up">Fetch</li>
+						</ul>
+						<aside class="notes">
+							<p>We also gained features like History, Browser Storage, and Fetch.</p>
+							<p><strong>History</strong> is the feature that allows us to handle navigation all from the browser. It basically tricks your browser into thinking it's changed pages despite the fact that its still on a simple index.html page. JavaScript is then able to intercept these History changes and respond with new content.</p>
+							<p><strong>Browser storage</strong> allows us to safely* store user or application data scoped directly to your domain. This is a massive improvement over cookies which, while technically can be used to store information by the browser, are passed in the header of every HTTP request made to a server. In many cases, these Cookies can be picked up by other sites or intercepted by bad actors. That's not to say that Cookies don't have their place, but Storage gives us a safer place to keep things that don't need to be transferred over every request.</p>
+							<p>Finally the <strong>Fetch</strong> API allowed us to make AJAX requests in a much simpler way while leveraging some of the improvements in JavaScript's asynchronous interface.</p>
+							<p>All of these features are used in tandem to create powerful application experiences that in the past were only possible directly on the native desktop or through third-party tools like Flash.</p>
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Let's Talk About JavaScript</h2>
+						<aside class="notes">
+							There are three common critiques that tend to come up from non-frontend developers when talking about the JavaScript ecosystem.
+						</aside>
+					</section>
+					<section>
+						<h4>"JavaScript is the worst! Why do we have to use it!? Why is nothing typed strongly and everything dynamic????"</h4>
+						<ul>
+							<li class="fragment fade-up">JavaScript interfaces with the DOM.</li>
+							<li class="fragment fade-up">JavaScript is event driven.</li>
+							<li class="fragment fade-up">JavaScript is the language of the web...</li>
+							<li class="fragment fade-up">...and it's all we've got...</li>
+							<li class="fragment fade-up">...but it's constantly getting better.</li>
+						</ul>
+						<aside class="notes">
+							<p>The first one is often, "JavaScript is absolutely the worst. Why do we have to use it? It can't even do loose typing correctly!"</p>
+							<p>JavaScript gives us an interface with interacting with the document on the user's screen in an easy to use manner. This isn't your father's DOM. JavaScript is largely event-driven, meaning we can respond to user's interaction with the screen interactively, but only respond to the actions we care about.</p>
+						</aside>
+					</section>
+					<section>
+						<h4>"Why do I need a framework?"</h4>
+						<ul>
+							<li class="fragment fade-up">Frameworks are designed to help developers think.</li>
+							<li class="fragment fade-up">Frameworks help us focus on big important problems and abstract away repeated browser things.</li>
+							<li class="fragment fade-up">Frameworks each solve different problems well.</li>
+							<li class="fragment fade-up">Focus on solving big problems and not on frameworks.</li>
+						</ul>
+						<aside class="notes">
+							<p>Okay so I'm not going to answer the jquery question, but if you are curious I would be happy to talk your ear off about it for like 5 minutes after this.</p>
+							<p>So why do we have frameworks? It's super simple. Frameworks are designed to help developers think. They give us a shared set of patterns that mean we don't have to reinvent the wheel every time we approach a tough problem. Each framework is designed with a different usecase in mind. For Installed Sales, we've adopted React. Some of the things React is good at doing for us is managing application state, determining when we need to render or rerender a screen, and ensure that data is always going only one direction. Now for Installed Sales, these were exactly the tools we needed. For some teams in the broader ecosystem, you might need a more reactive rendering environment for data visualization, so you pick up Svelte. Or perhaps you need two-way data flow, so you pick up Angular. These are simply tools that let us developers focus on big problems, while abstracting away the common and oft repeated ones.</p>
+						</aside>
+					</section>
+					<section>
+						<h4>"It takes so dang long to set up my frontend dev environment!"</h4>
+						<ul>
+							<li class="fragment fade-up">Yes.</li>
+							<li class="fragment fade-up">We're working on it.</li>
+							<li class="fragment fade-up">It's getting better.</li>
+						</ul>
+						<aside class="notes">
+							The last thing that often comes up, its that final swing people try to take at the frontend ecosystem is that it just takes so dang long to set up your local development environment. There's all those build steps and dependencies, and have you checked out the size of your node_modules folder recently!? All I have to say about that is, yes, you're 100% right. If you're dipping your toe into the frontend waters for the first time your initial set up will be a little bit painful, but what dev environment isn't? The big value of your node_modules folder is that it doesn't have to download dependencies at every runtime and takes care of a lot of the problems of interdependent dependencies. And this is getting better with every major release of the module systems in both Node and npm.
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>What does this mean for you?</h2>
+						<aside class="notes">
+							<p>Right now we're in the process of creating web-based UI's for Agility. All of this is done under the single page app methodology. The first time an Agility user hits a web-based module, they'll get all the code for that module bundled up and shipped to the browser. From there, its all up to the JavaScript to change screens, open windows, and fetch and save data.</p>
+							<p>But as we do this development, write out acceptance tests, and test the things we build, there are four things that I believe are crucial for us to be thinking about.</p>
+						</aside>
+					</section>
+					<section>
+						<h3>Data Validation</h3>
+					</section>
+					<section>
+						<h3>Data Validation (Client Only)</h3>
+						<img src="https://i.imgur.com/njBACa2.png" />
+						<aside class="notes">
+							<p>Let's say I'm signing up for a Twitter account. I fill out a long form, hit submit, wait for a half a second for the server to come back and tell me, hey that email was wrong.</p>
+						</aside>
+					</section>
+					<section>
+						<h3>Data Validation (Client + Server)</h3>
+						<img src="https://i.imgur.com/ETvAh2N.png" />
+						<aside class="notes">
+							<p>Remember to positively compare this to OpenEdge</p>
+						</aside>
+					</section>
+					<section>
+						<h3>Data Validation</h3>
+						<p>Three Principles</p>
+						<ol>
+							<li class="fragment fade-up">Never Trust the Browser</li>
+							<li class="fragment fade-up">Use Client-Side Validation for User Experience</li>
+							<li class="fragment fade-up">Use Server-Side Validation for Actual Business</li>
+						</ol>
+					</section>
+					<section>
+						<h3>Security</h3>
+						<p class="fragment fade-up">Nothing is a secret</p>
+					</section>
+					<section data-transition="none"></section>
+					<section data-transition="none">
+						<img src="https://i.imgur.com/fZgor2h.png" />
+						<aside class="notes">
+							HTML Source
+						</aside>
+					</section>
+					<section data-transition="none">
+						<img src="https://i.imgur.com/SesnEQU.png" />
+						<aside class="notes">
+							<p>Network Requests</p>
+						</aside>
+					</section>
+					<section data-transition="none">
+						<img src="https://i.imgur.com/AWSsUrs.png" />
+						<aside class="notes">
+							<p>Local storage</p>
+							<p>Action Allocations example</p>
+						</aside>
+					</section>
+					<section data-transition="none">
+						<img src="https://i.imgur.com/ks6skQ9.png" />
+						<aside class="notes">
+							<p>Action Allocations example</p>
+						</aside>
+					</section>
+					<section>
+						<h3>Security</h3>
+						<p>Five Principles</p>
+						<ol>
+							<li class="fragment fade-up">Never Trust the Browser</li>
+							<li class="fragment fade-up">If the User Shouldn't See It, Don't Send It</li>
+							<li class="fragment fade-up">Use Client-Side Security for User Experience</li>
+							<li class="fragment fade-up">There's No Such Thing as Client-Side Security</li>
+							<li class="fragment fade-up">Use Server-Side for Actual Security</li>
+						</ol>
+					</section>
+					<section>
+						<h4>Backend Devs, We're Counting on You</h4>
+					</section>
+					<section>
+						<h2>User Data</h2>
+						<p><span class="fragment fade-up">Keep it secret,</span> <span class="fragment fade-up">keep it safe</span></p>
+						<img class="fragment fade-in" src="https://media2.giphy.com/media/3oFyCYNrra8qo1Cv8Q/giphy.gif?cid=790b76110cd3a0cd86e812228e6c1ac1be92aeb7f54c8c66&rid=giphy.gif" />
+					</section>
+					<section>
+						<ul>
+							<li class="fragment fade-up">Don't put sensitive data in cookies.</li>
+							<li class="fragment fade-up">Isolate hyper-sensitive data from third-party code wherever possible.</li>
+							<li class="fragment fade-up">Sanitize your inputs.<br /> <img src="https://imgs.xkcd.com/comics/exploits_of_a_mom.png" /></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Practice Safe Module Adoption</h2>
+					</section>
+				</section>
+				<section>
+					<h2>Web Apps Rock</h2>
+					<img class="fragment fade-up" src="https://media2.giphy.com/media/MCZ39lz83o5lC/giphy.gif?cid=790b76119d18a55f8d938e56e1187405ddb3852803171c12&rid=giphy.gif" />
+				</section>
+				<section>
+					<h2>Questions?</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				hash: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
